@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Mortgage repayment calculator</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <form class="calculator">
+      <div class="calculator__header">
+        <h1 class="calculator__type">Mortgage Calculator</h1>
+        <button type="button" class="calculator__clear-all-input-button">Clear All</button>
+      </div>
+
+      <fieldset>
+        <legend class="u-sr-only">Mortgage Info</legend>
+
+        <div>
+          <label class="calculator__input-label" for="mortgage-amount">Mortgage Amount</label>
+          <input class="calculator__input calculator__input-mortgage-amount" id="mortgage-amount" type="number" aria-label="Mortgage amount in euros" min="1000" required>
+        </div>
+
+        <div>
+          <label class="calculator__input-label" for="mortgage-term">Mortgage Term</label>
+          <input class="calculator__input calculator__input-mortgage-term" id="mortgage-term" type="number" aria-label="Mortgage Term in years" min="5" required>
+        </div>
+
+        <div>
+          <label class="calculator__input-label" for="interest-rate">Interest Rate</label>
+          <input class="calculator__input calculator__input-interest-rate" id="interest-rate" type="number" aria-label="Interest Rate in percentage" min="0" max="100" required>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="calculator__input-label">Mortgage Type</legend>
+
+        <label class="calculator__input-radio">
+          <input type="radio" name="mortgage-type" value="Repayment" required>
+          Repayment
+        </label>
+        
+
+        <label class="calculator__input-radio">
+          <input type="radio" name="mortgage-type" value="Interest Only" required>
+          Interest Only
+        </label>
+      </fieldset>
+
+      <button class="calculator__submit-button" type="submit">Calculate Repayments</button>
+    </form>
+    
+    <section class="results" aria-live="polite">
+      <img class="results__illustration-empty" src="./assets/images/illustration-empty.svg" alt="">
+      <h2 class="results__header">Results shown here</h2>
+      <p class="results__message">Complete the form and click “calculate repayments” to see what 
+        your monthly repayments would be.</p>
+    </section>
+  </main>
+
+  <!-- Completed results start -->
+
+  <!-- Your results
+
+  Your results are shown below based on the information you provided. 
+  To adjust the results, edit the form and click “calculate repayments” again.
+
+  Your monthly repayments
+
+  Total you'll repay over the term -->
+
+  <!-- Completed results end -->
+  
+  <footer class="attribution">
+    Challenge by <a rel="noopener noreferrer" href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a rel="noopener noreferrer" href="https://github.com/CardboardPL">CardboardPL</a>.
+  </footer>
+</body>
+</html>
