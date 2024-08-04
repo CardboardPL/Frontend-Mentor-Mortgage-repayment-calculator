@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="./stylesheets/fonts.css">
+  <link rel="stylesheet" type="text/css" href="./stylesheets/general.css">
   <title>Frontend Mentor | Mortgage repayment calculator</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -59,7 +59,7 @@
       <button class="calculator__submit-button" type="submit">Calculate Repayments</button>
     </form>
     
-    <section class="results" aria-live="polite">
+    <section class="results results--empty" aria-live="polite">
       <img class="results__illustration-empty" src="./assets/images/illustration-empty.svg" alt="">
       <h2 class="results__header">Results shown here</h2>
       <p class="results__message">Complete the form and click “calculate repayments” to see what 
