@@ -7,6 +7,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="./stylesheets/fonts.css">
   <link rel="stylesheet" type="text/css" href="./stylesheets/general.css">
+  <link rel="stylesheet" type="text/css" href="./stylesheets/calculator.css">
   <link rel="stylesheet" type="text/css" href="./stylesheets/attribution.css">
   <link rel="stylesheet" type="text/css" href="./stylesheets/utility.css">
   <title>Frontend Mentor | Mortgage repayment calculator</title>
@@ -24,17 +25,23 @@
 
         <div>
           <label class="calculator__input-label" for="mortgage-amount">Mortgage Amount</label>
-          <input class="calculator__input calculator__input-mortgage-amount" id="mortgage-amount" type="number" aria-label="Mortgage amount in euros" min="1000" required>
+          <div class="calculator__input-wrapper calculator__input-wrapper--mortgage-amount">
+            <input class="calculator__input calculator__input-mortgage-amount" id="mortgage-amount" type="number" aria-label="Mortgage amount in euros" min="1000" required>
+          </div>
         </div>
 
         <div>
           <label class="calculator__input-label" for="mortgage-term">Mortgage Term</label>
-          <input class="calculator__input calculator__input-mortgage-term" id="mortgage-term" type="number" aria-label="Mortgage Term in years" min="5" required>
+          <div class="calculator__input-wrapper calculator__input-wrapper--mortgage-term">
+            <input class="calculator__input calculator__input-mortgage-term" id="mortgage-term" type="number" aria-label="Mortgage Term in years" min="5" required>
+          </div>
         </div>
 
         <div>
           <label class="calculator__input-label" for="interest-rate">Interest Rate</label>
-          <input class="calculator__input calculator__input-interest-rate" id="interest-rate" type="number" aria-label="Interest Rate in percentage" min="0" max="100" required>
+          <div class="calculator__input-wrapper calculator__input-wrapper--interest-rate">
+            <input class="calculator__input calculator__input-interest-rate" id="interest-rate" type="number" aria-label="Interest Rate in percentage" min="0" max="100" required>
+          </div>
         </div>
       </fieldset>
 

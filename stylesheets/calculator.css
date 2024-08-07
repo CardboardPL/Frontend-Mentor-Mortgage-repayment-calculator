@@ -1,0 +1,94 @@
+.calculator {
+  background-color: var(--white);
+  padding: 29px 24px;
+}
+
+.calculator__header {
+  margin-bottom: 24px;
+}
+
+.calculator__type {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 5px;
+}
+
+.calculator__clear-all-input-button {
+  color: var(--slate-700);
+  text-decoration: 2px underline var(--slate-500);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.calculator__clear-all-input-button:hover,
+.calculator__clear-all-input-button:focus {
+  color: var(--slate-900);
+}
+
+.calculator > fieldset {
+  border: none;
+}
+
+.calculator fieldset:first-of-type {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.calculator fieldset:first-of-type > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator__input-label {
+  color: var(--slate-700);
+  margin-bottom: 11px;
+}
+
+.calculator__input-wrapper {
+  position: relative;
+  height: 50px;
+  border: 1px solid var(--slate-700);
+  border-radius: 5px;
+  margin-bottom: 23px;
+  overflow: hidden;
+}
+
+.calculator__input-wrapper::before {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  font-size: 19px;
+  font-weight: var(--font-weight-bold);
+  color: var(--slate-700);
+  background-color: var(--slate-100);
+  padding: 10px 15.5px 0 15.5px;
+}
+
+.calculator__input-wrapper--mortgage-amount::before {
+  left: 0;
+  content: '£';
+}
+
+.calculator__input-wrapper--mortgage-term::before {
+  content: 'years';
+  right: 0;
+  padding: 10px 15px 0 15px;
+}
+
+.calculator__input-wrapper--interest-rate::before {
+  content: '%';
+  right: 0;
+}
+
+.calculator__input {
+  display: block;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
