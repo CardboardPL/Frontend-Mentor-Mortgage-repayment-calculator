@@ -23,7 +23,7 @@
         <button type="button" class="calculator__clear-all-input-button">Clear All</button>
       </div>
 
-      <fieldset>
+      <fieldset class="calculator__input-field">
         <legend class="u-sr-only">Mortgage Info</legend>
 
         <div>
@@ -48,22 +48,27 @@
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset class="calculator__input-field">
         <legend class="calculator__input-label">Mortgage Type</legend>
 
-        <label class="calculator__input-radio">
-          <input type="radio" name="mortgage-type" value="Repayment" required>
-          Repayment
-        </label>
-        
-
-        <label class="calculator__input-radio">
-          <input type="radio" name="mortgage-type" value="Interest Only" required>
-          Interest Only
-        </label>
+        <div>
+          <label class="calculator__input-wrapper calculator__input--radio">
+            <input type="radio" name="mortgage-type" value="Repayment" required>
+            Repayment
+          </label>
+          
+  
+          <label class="calculator__input-wrapper calculator__input--radio">
+            <input type="radio" name="mortgage-type" value="Interest Only" required>
+            Interest Only
+          </label>
+        </div>
       </fieldset>
 
-      <button class="calculator__submit-button" type="submit">Calculate Repayments</button>
+      <button class="calculator__submit-button" type="submit">
+        <img src="./assets/images/icon-calculator.svg" alt="" aria-hidden="true">
+        Calculate Repayments
+      </button>
     </form>
     
     <section class="results results--empty" aria-live="polite">
