@@ -1,6 +1,7 @@
 .results {
   color: var(--slate-300);
   background-color: var(--slate-900);
+  padding: 31.625px 0;
 }
 
 .results--empty {
@@ -11,4 +12,10 @@
   font-size: 24px;
   font-weight: var(--font-weight-bold);
   color: var(--white);
+  margin-bottom: 14px;
+}
+
+.results__illustration-empty {
+  width: 192.25px;
+  margin-bottom: 7px;
 }
