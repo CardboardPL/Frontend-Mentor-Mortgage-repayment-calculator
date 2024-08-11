@@ -27,12 +27,9 @@
 }
 
 .calculator__input-field {
-  border: none;
-}
-
-.calculator__input-field {
   display: grid;
   grid-template-columns: 1fr;
+  border: none;
 }
 
 .calculator__input-field > div {
@@ -84,6 +81,25 @@
 
 .calculator__input-wrapper--mortgage-term > span {
   padding: 10px 15px 0 15px;
+}
+
+.calculator__input-wrapper.calculator__input-wrapper--error {
+  border-width: 2px;
+  border-color: var(--red);
+  margin-bottom: 0;
+}
+
+.calculator__input-wrapper.calculator__input-wrapper--error > span {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.calculator__input-wrapper--error:hover {
+  border-color: hsl(4, 75%, 47%);
+}
+
+.calculator__input-wrapper--error:hover > span {
+  background-color: hsl(4, 75%, 47%);
 }
 
 .calculator__input {
@@ -151,6 +167,16 @@
   transform: translate(-50%, -50%);
   background-color: var(--lime);
   border-radius: 50%;
+}
+
+.input__error-message {
+  font-size: 14px;
+  color: var(--red);
+  margin: 10px 0 24px 0;
+}
+
+.calculator__input-field--radio .input__error-message {
+  margin-bottom: 17px;
 }
 
 .calculator__submit-button {
