@@ -1,4 +1,5 @@
 import { calculateMortgage } from './mortgage.js';
+import { renderResultsSection } from './results.js';
 
 function extractFormData(formElement) {
   if (!formElement) {
@@ -126,7 +127,9 @@ export function setupFormEventListeners() {
     const formState = validateForm(formElement);
     if (formState.status) {
       const { mortgageAmount, mortgageTerm, interestRate, mortgageType } = formState.value;
-      console.log(calculateMortgage(mortgageAmount, mortgageTerm, interestRate, mortgageType));
+      renderResultsSection(
+        calculateMortgage(mortgageAmount, mortgageTerm, interestRate, mortgageType)
+      );
     }
   });
 
