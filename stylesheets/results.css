@@ -4,6 +4,10 @@
   padding: 31.625px 0;
 }
 
+.results.results--complete {
+  padding: 29px 24px 32px 24px;
+}
+
 .results--empty {
   text-align: center;
 }
@@ -15,7 +19,48 @@
   margin-bottom: 14px;
 }
 
+.results--complete > .results__header {
+  margin-bottom: 13px;
+}
+
 .results__illustration-empty {
   width: 192.25px;
   margin-bottom: 7px;
+}
+
+.results__values {
+  background-color: hsl(202, 56%, 12%);
+  margin-top: 24px;
+  border-top: 4px solid var(--lime);
+  border-radius: 8px;
+  padding: 20px 16px 21px 16px;
+}
+
+.results__values > span {
+  display: flex;
+}
+
+.results__values hr {
+  background-color: var(--slate-700);
+  height: 1px;
+  width: 100%;
+  border: none;
+  margin: 12px 0 16px 0;
+}
+
+.result__monthly-payment {
+  font-size: 40px;
+  color: var(--lime);
+  margin-top: 2px;
+}
+
+.result__total-payment {
+  font-size: 24px;
+  color: var(--white);
+  margin-top: 5px;
+}
+
+.result__monthly-payment,
+.result__total-payment {
+  font-weight: var(--font-weight-bold);
 }
