@@ -20,5 +20,5 @@ export function calculateMortgage(principal = 0, loanTerm = 0, interestRate = 0,
   const monthlyMortgagePayment = Math.round(monthlyPayment) / 100;
   const totalMortgagePayment = Math.round(monthlyPayment * numberOfMonths) / 100;
   
-  return [monthlyMortgagePayment, totalMortgagePayment];
+  return { monthlyMortgagePayment, totalMortgagePayment };
 }
