@@ -71,10 +71,10 @@ export function validateNumberField(inputElem) {
     inputMessage = 'Number must be a valid number';
   } else if (minVal && inputVal < minVal) {
     isValid = false;
-    inputMessage = `Number must be greater than ${minVal}`;
+    inputMessage = `Number must be greater than ${minVal - 1}`;
   } else if (maxVal && inputVal > maxVal) {
     isValid = false;
-    inputMessage = `Number must be greater than ${maxVal}`;
+    inputMessage = `Number must be less than ${maxVal}`;
   }
 
   return {status: isValid, message: inputMessage};

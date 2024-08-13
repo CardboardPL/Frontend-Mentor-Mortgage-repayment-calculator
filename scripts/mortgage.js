@@ -3,6 +3,10 @@ export function calculateMortgage(principal = 0, loanTerm = 0, interestRate = 0,
     return null;
   }
 
+  if (loanTerm > 10000) {
+    throw new RangeError('Loan term exceeds the maximum allowed limit.');
+  }
+  
   interestRate = interestRate / 100 / 12;
   const principalInCents = principal * 100;
   const numberOfMonths = loanTerm * 12;
@@ -19,6 +23,6 @@ export function calculateMortgage(principal = 0, loanTerm = 0, interestRate = 0,
   const monthlyPayment = mortgagePayments[typeOfLoan];
   const monthlyMortgagePayment = Math.round(monthlyPayment) / 100;
   const totalMortgagePayment = Math.round(monthlyPayment * numberOfMonths) / 100;
-  
+
   return { monthlyMortgagePayment, totalMortgagePayment };
 }
