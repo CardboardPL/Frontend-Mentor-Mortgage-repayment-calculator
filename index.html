@@ -7,6 +7,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="./stylesheets/fonts.css">
   <link rel="stylesheet" type="text/css" href="./stylesheets/general.css">
+  <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
   <link rel="stylesheet" type="text/css" href="./stylesheets/calculator.css">
   <link rel="stylesheet" type="text/css" href="./stylesheets/results.css">
   <link rel="stylesheet" type="text/css" href="./stylesheets/attribution.css">
@@ -17,77 +18,79 @@
 </head>
 <body>
   <main>
-    <form action="javascript:void(0)" class="calculator js-calculator">
-      <div class="calculator__header">
-        <h1 class="calculator__type">Mortgage Calculator</h1>
-        <button type="button" class="calculator__clear-all-input-button js-clear-all-input-button">Clear All</button>
-      </div>
-
-      <fieldset class="calculator__input-field">
-        <legend class="u-sr-only">Mortgage Info</legend>
-
-        <div>
-          <label class="calculator__input-label" for="mortgage-amount">Mortgage Amount</label>
-          <div class="calculator__input-wrapper calculator__input-wrapper--mortgage-amount js-input-wrapper">
-            <input class="calculator__input calculator__input-mortgage-amount" id="mortgage-amount" type="number" name="mortgageAmount" aria-label="Mortgage amount in euros" min="1000" required>
-            <span>£</span>
+    <article class="mortgage-calculator">
+      <form action="javascript:void(0)" class="calculator js-calculator">
+        <div class="calculator__header">
+          <h1 class="calculator__type">Mortgage Calculator</h1>
+          <button type="button" class="calculator__clear-all-input-button js-clear-all-input-button">Clear All</button>
+        </div>
+  
+        <fieldset class="calculator__input-field">
+          <legend class="u-sr-only">Mortgage Info</legend>
+  
+          <div>
+            <label class="calculator__input-label" for="mortgage-amount">Mortgage Amount</label>
+            <div class="calculator__input-wrapper calculator__input-wrapper--mortgage-amount js-input-wrapper">
+              <input class="calculator__input calculator__input-mortgage-amount" id="mortgage-amount" type="number" name="mortgageAmount" aria-label="Mortgage amount in euros" min="1000" required>
+              <span>£</span>
+            </div>
+            <span class="input__error-message js-error-message u-hidden"></span>
+          </div>
+  
+          <div>
+            <label class="calculator__input-label" for="mortgage-term">Mortgage Term</label>
+            <div class="calculator__input-wrapper calculator__input-wrapper--mortgage-term js-input-wrapper">
+              <input class="calculator__input calculator__input-mortgage-term" id="mortgage-term" type="number" name="mortgageTerm" aria-label="Mortgage Term in years" min="1" max="10000" required>
+              <span>years</span>
+            </div>
+            <span class="input__error-message js-error-message u-hidden"></span>
+          </div>
+  
+          <div>
+            <label class="calculator__input-label" for="interest-rate">Interest Rate</label>
+            <div class="calculator__input-wrapper calculator__input-wrapper--interest-rate js-input-wrapper">
+              <input class="calculator__input calculator__input-interest-rate" id="interest-rate" type="number" name="interestRate" aria-label="Interest Rate in percentage" min="0" max="100" required>
+              <span>%</span>
+            </div>
+            <span class="input__error-message js-error-message u-hidden"></span>
+          </div>
+        </fieldset>
+  
+        <fieldset class="calculator__input-field calculator__input-field--radio">
+          <legend class="calculator__input-label">Mortgage Type</legend>
+  
+          <div>
+            <label class="calculator__input-wrapper calculator__input--radio u-sr-only">
+              <input type="radio" name="mortgageType" value="" required checked>
+              Empty
+            </label>
+  
+            <label class="calculator__input-wrapper calculator__input--radio">
+              <input type="radio" name="mortgageType" value="Repayment" required>
+              Repayment
+            </label>
+            
+            <label class="calculator__input-wrapper calculator__input--radio">
+              <input type="radio" name="mortgageType" value="Interest Only" required>
+              Interest Only
+            </label>
           </div>
           <span class="input__error-message js-error-message u-hidden"></span>
-        </div>
-
-        <div>
-          <label class="calculator__input-label" for="mortgage-term">Mortgage Term</label>
-          <div class="calculator__input-wrapper calculator__input-wrapper--mortgage-term js-input-wrapper">
-            <input class="calculator__input calculator__input-mortgage-term" id="mortgage-term" type="number" name="mortgageTerm" aria-label="Mortgage Term in years" min="0" required>
-            <span>years</span>
-          </div>
-          <span class="input__error-message js-error-message u-hidden"></span>
-        </div>
-
-        <div>
-          <label class="calculator__input-label" for="interest-rate">Interest Rate</label>
-          <div class="calculator__input-wrapper calculator__input-wrapper--interest-rate js-input-wrapper">
-            <input class="calculator__input calculator__input-interest-rate" id="interest-rate" type="number" name="interestRate" aria-label="Interest Rate in percentage" min="0" max="100" required>
-            <span>%</span>
-          </div>
-          <span class="input__error-message js-error-message u-hidden"></span>
-        </div>
-      </fieldset>
-
-      <fieldset class="calculator__input-field calculator__input-field--radio">
-        <legend class="calculator__input-label">Mortgage Type</legend>
-
-        <div>
-          <label class="calculator__input-wrapper calculator__input--radio u-sr-only">
-            <input type="radio" name="mortgageType" value="" required checked>
-            Empty
-          </label>
-
-          <label class="calculator__input-wrapper calculator__input--radio">
-            <input type="radio" name="mortgageType" value="Repayment" required>
-            Repayment
-          </label>
-          
-          <label class="calculator__input-wrapper calculator__input--radio">
-            <input type="radio" name="mortgageType" value="Interest Only" required>
-            Interest Only
-          </label>
-        </div>
-        <span class="input__error-message js-error-message u-hidden"></span>
-      </fieldset>
-
-      <button class="calculator__submit-button js-calculator-submit-button" type="submit">
-        <img src="./assets/images/icon-calculator.svg" alt="" aria-hidden="true">
-        Calculate Repayments
-      </button>
-    </form>
-    
-    <section class="results results--empty" aria-live="polite">
-      <img class="results__illustration-empty" src="./assets/images/illustration-empty.svg" alt="">
-      <h2 class="results__header">Results shown here</h2>
-      <p class="results__message">Complete the form and click “calculate repayments” to see what 
-        your monthly repayments would be.</p>
-    </section>
+        </fieldset>
+  
+        <button class="calculator__submit-button js-calculator-submit-button" type="submit">
+          <img src="./assets/images/icon-calculator.svg" alt="" aria-hidden="true">
+          Calculate Repayments
+        </button>
+      </form>
+      
+      <section class="results results--empty" aria-live="polite">
+        <img class="results__illustration-empty" src="./assets/images/illustration-empty.svg" alt="">
+        <h2 class="results__header">Results shown here</h2>
+        <p class="results__message">Complete the form and click “calculate repayments” to see what 
+          your monthly repayments would be.</p>
+      </section>
+    </article>
   </main>
 
   <!-- Completed results start -->

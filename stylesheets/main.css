@@ -1,0 +1,20 @@
+.mortgage-calculator {
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  width: fit-content;
+  max-width: 504px;
+  overflow: hidden;
+}
+
+@media (min-width: 1050px) {
+  .mortgage-calculator {
+    flex-direction: row;
+    max-width: none;
+  }
+
+  .mortgage-calculator > * {
+    width: 504px;
+  }
+}
