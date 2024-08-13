@@ -1,7 +1,7 @@
 .results {
   color: var(--slate-300);
   background-color: var(--slate-900);
-  padding: 31.625px 0;
+  padding: 31.625px 28px;
 }
 
 .results.results--complete {
@@ -37,7 +37,7 @@
 }
 
 .results__values > span {
-  display: flex;
+  display: inline-block;
 }
 
 .results__values hr {
@@ -63,4 +63,35 @@
 .result__monthly-payment,
 .result__total-payment {
   font-weight: var(--font-weight-bold);
+}
+
+@media (min-width: 1050px) {
+  .results {
+    border-bottom-left-radius: 84px;
+  }
+
+  .results--empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .results.results--complete {
+    padding: 37px 40px 32px 40px;
+  }
+
+  .results__values {
+    padding: 28px 32px 29px 32px;
+    margin-top: 40px;
+  }
+
+  .results__values hr {
+    margin: 25px 0 32px 0;
+  }
+
+  .result__monthly-payment {
+    font-size: 56px;
+    margin-top: 1px;
+  }
 }
