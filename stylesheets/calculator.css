@@ -18,6 +18,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: color 0.15s ease-in-out;
 }
 
 .calculator__clear-all-input-button:hover,
@@ -49,6 +50,7 @@
   margin-bottom: 23px;
   overflow: hidden;
   cursor: pointer;
+  transition: border-color 0.15s ease-in-out;
 }
 
 .calculator__input-wrapper:hover {
@@ -126,6 +128,9 @@
   justify-content: left;
   padding: 0 18px;
   margin-bottom: 10px;
+  transition: 
+    border-color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out;
 }
 
 .calculator__input--radio:has(input:checked) {
@@ -191,6 +196,8 @@
   border-radius: 112px;
   margin-top: 23px;
   cursor: pointer;
+  transition: 
+    background-color 0.15s ease-in-out;
 }
 
 .calculator__submit-button:hover {
