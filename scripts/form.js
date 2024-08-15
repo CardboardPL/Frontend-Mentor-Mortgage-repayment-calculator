@@ -10,6 +10,44 @@ function extractFormData(formElement) {
   return Object.fromEntries(formValues.entries());
 }
 
+function extractValidationAttributes(validationStr) {
+  validationStr = validationStr.split('|');
+
+  const validationData = {};
+
+  for (const attribute of validationStr) {
+    const [ key, value ] = attribute.split('=');
+    if (value === undefined) {
+      validationData[key] = true;
+    } else {
+      validationData[key] = value;
+    }
+  }
+
+  return Object.keys(validationData).length ? validationData : null;
+}
+
+function formatNum(numStr) {
+  numStr = numStr.split('.');
+
+  let [ integer, decimal ] = 
+    [ numStr[0].split('').reverse().join(''), numStr[1] ];
+  let formattedNum = '';
+
+  for (let i = 0; i < integer.length; i++) {
+    if (i % 3 === 0 && i > 0) {
+      formattedNum += ',';
+    }
+    formattedNum += integer[i];
+  }
+
+  return formattedNum.split('').reverse().join('') + (decimal != null ? '.' + decimal : '');
+}
+
+function formattedInputValuesToNum(...inputValues) {
+  return inputValues.map(val => Number(val.replace(/[^0-9\.]/g, '')));
+}
+
 function validateForm(formElement) {
   const data = extractFormData(formElement);
   const keys = Object.keys(data);
@@ -20,34 +58,27 @@ function validateForm(formElement) {
 
   for (const key of keys) {
     const inputElem = formElement.querySelector(`input[name="${key}"]`);
-    
+    const inputElemValidationData = extractValidationAttributes(inputElem.dataset.validation);
+
     if (!inputElem || !inputElem.required) continue;   
     
-    const errorMessageElem = inputElem.type === 'radio' ? 
+    const errorMessageElem = inputElemValidationData.type === 'radio' ? 
       inputElem.closest('div').nextElementSibling :
       inputElem.parentElement.nextElementSibling;
 
     if (!errorMessageElem) continue;
     
     if (!data[key]) {
+      handleValidationError(inputElem, errorMessageElem, 'This field is required');
       isValid = false;
-      showErrorMessage(errorMessageElem, 'This field is required');
-
-      const inputWrapper = inputElem.closest('.js-input-wrapper');
-
-      if (inputWrapper) {
-        inputWrapper.classList.add('calculator__input-wrapper--error');
-      }
-      
       continue;
     }
 
-    if (inputElem.type === 'number') {
-      const inputState = validateNumberField(inputElem);
+    if (inputElemValidationData.type === 'number') {
+      const inputState = validateNumberField(inputElem.value, inputElemValidationData);
 
       if (!inputState.status) {
-        showErrorMessage(errorMessageElem, inputState.message);
-        inputElem.closest('.js-input-wrapper').classList.add('calculator__input-wrapper--error')
+        handleValidationError(inputElem, errorMessageElem, inputState.message);
         isValid = false;
       }
 
@@ -58,23 +89,23 @@ function validateForm(formElement) {
   return isValid ? {status: true, value: data} : {status: false, value: null};
 }
 
-export function validateNumberField(inputElem) {
-  const inputVal = parseFloat(inputElem.value.replace(/\s/g, ''));
-  const minVal = inputElem.min;
-  const maxVal = inputElem.max;
+export function validateNumberField(inputVal, inputValidationAttributes) {
+  inputVal = Number(inputVal.replace(/[^0-9\.]/g, ''));
+  const validationAttributes = inputValidationAttributes;
+  const { min, max } = validationAttributes;
 
   let isValid = true;
-  let inputMessage ='Success'
+  let inputMessage = 'Success';
 
   if (isNaN(inputVal)) {
     isValid = false;
     inputMessage = 'Number must be a valid number';
-  } else if (minVal && inputVal < minVal) {
+  } else if (min && inputVal < min) {
     isValid = false;
-    inputMessage = `Number must be greater than ${minVal - 1}`;
-  } else if (maxVal && inputVal > maxVal) {
+    inputMessage = `Number must be greater than or equal to ${formatNum(min.toString())}`;
+  } else if (max && inputVal > max) {
     isValid = false;
-    inputMessage = `Number must be less than ${maxVal}`;
+    inputMessage = `Number must be less than or equal to ${formatNum(max.toString())}`;
   }
 
   return {status: isValid, message: inputMessage};
@@ -83,6 +114,11 @@ export function validateNumberField(inputElem) {
 function showErrorMessage(errorMessageElem, message) {
   errorMessageElem.textContent = message;
   errorMessageElem.classList.remove('u-hidden');
+}
+
+function handleValidationError(inputElem, errorMessageElem, message) {
+  showErrorMessage(errorMessageElem, message);
+  inputElem.closest('.js-input-wrapper').classList.add('calculator__input-wrapper--error');
 }
 
 function clearErrorMessages(formElement) {
@@ -121,6 +157,35 @@ function resetForm(formElement) {
 export function setupFormEventListeners() {
   const formElement = document.querySelector('.js-calculator');
 
+  document.addEventListener('input', (e) => {
+    const target = e.target;
+
+    if (target.classList.contains('js-calculator-input')) {
+      const validationInfo = extractValidationAttributes(target.dataset.validation);
+      
+      if (!validationInfo) return;
+      if (validationInfo.type === 'number') {
+        const cleanedValue = target.value.replace(/[^0-9\.]/g, '');
+        
+        let cleanedInput = '';
+        let isDecimalFound = false;
+
+        for (const char of cleanedValue) {
+          if (char === '.') {
+            if (!isDecimalFound) {
+              cleanedInput += char;
+              isDecimalFound = true;
+            }
+          } else {
+            cleanedInput += char;
+          }
+        }
+
+        target.value = formatNum(cleanedInput);
+      }
+    }
+  });
+
   document.querySelector('.js-calculator-submit-button').addEventListener('click', (e) => {
     e.preventDefault();
   
@@ -128,7 +193,7 @@ export function setupFormEventListeners() {
     if (formState.status) {
       const { mortgageAmount, mortgageTerm, interestRate, mortgageType } = formState.value;
       renderResultsSection(
-        calculateMortgage(mortgageAmount, mortgageTerm, interestRate, mortgageType)
+        calculateMortgage(...formattedInputValuesToNum(mortgageAmount, mortgageTerm, interestRate), mortgageType)
       );
     }
   });
