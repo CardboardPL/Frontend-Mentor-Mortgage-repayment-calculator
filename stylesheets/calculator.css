@@ -1,20 +1,20 @@
 .calculator {
-  padding: 29px 24px 32px 24px;
+  padding: 1.8125rem 1.5rem 2rem 1.5rem;
 }
 
 .calculator__header {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .calculator__type {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: var(--font-weight-bold);
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
 }
 
 .calculator__clear-all-input-button {
   color: var(--slate-700);
-  text-decoration: 2px underline var(--slate-500);
+  text-decoration: 0.125rem underline var(--slate-500);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -39,15 +39,15 @@
 
 .calculator__input-label {
   color: var(--slate-700);
-  margin-bottom: 11px;
+  margin-bottom: 0.6875rem;
 }
 
 .calculator__input-wrapper {
   display: flex;
-  height: 50px;
-  border: 1px solid var(--slate-700);
-  border-radius: 5px;
-  margin-bottom: 23px;
+  height: 3.125rem;
+  border: 0.0625rem solid var(--slate-700);
+  border-radius: 0.3125rem;
+  margin-bottom: 1.4375rem;
   overflow: hidden;
   cursor: pointer;
   transition: border-color 0.15s ease-in-out;
@@ -73,19 +73,19 @@
 .calculator__input-wrapper > span {
   display: flex;
   justify-content: center;
-  font-size: 19px;
+  font-size: 1.1875rem;
   font-weight: var(--font-weight-bold);
   color: var(--slate-700);
   background-color: var(--slate-100);
-  padding: 10px 15.5px 0 15.5px;
+  padding: 0.625rem 0.96875rem 0 0.96875rem;
 }
 
 .calculator__input-wrapper--mortgage-term > span {
-  padding: 10px 15px 0 15px;
+  padding: 0.625rem 0.9375rem 0 0.9375rem;
 }
 
 .calculator__input-wrapper.calculator__input-wrapper--error {
-  border-width: 2px;
+  border-width: 0.125rem;
   border-color: var(--red);
   margin-bottom: 0;
 }
@@ -105,7 +105,7 @@
 
 .calculator__input {
   font: inherit;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   display: block;
   appearance: none;
@@ -116,18 +116,18 @@
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 0 17px;
+  padding: 0 1.0625rem;
   color: inherit;
 }
 
 .calculator__input--radio {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   display: flex;
   align-items: center;
   justify-content: left;
-  padding: 0 18px;
-  margin-bottom: 10px;
+  padding: 0 1.125rem;
+  margin-bottom: 0.625rem;
   transition: 
     border-color 0.15s ease-in-out,
     background-color 0.15s ease-in-out;
@@ -150,11 +150,11 @@
   position: relative;
   accent-color: var(--lime);
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   border-radius: 50%;
-  border: 2px solid var(--slate-700);
-  margin-right: 18px;
+  border: 0.125rem solid var(--slate-700);
+  margin-right: 1.125rem;
 }
 
 .calculator__input--radio > input:checked {
@@ -163,8 +163,8 @@
 
 .calculator__input--radio > input:checked::before {
   content: '';
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -174,27 +174,27 @@
 }
 
 .input__error-message {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--red);
-  margin: 10px 0 24px 0;
+  margin: 0.625rem 0 1.5rem 0;
 }
 
 .calculator__input-field--radio .input__error-message {
-  margin-bottom: 17px;
+  margin-bottom: 1.0625rem;
 }
 
 .calculator__submit-button {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--lime);
   width: 100%;
-  height: 56px;
+  height: 3.5rem;
   border: none;
-  border-radius: 112px;
-  margin-top: 23px;
+  border-radius: 7rem;
+  margin-top: 1.4375rem;
   cursor: pointer;
   transition: 
     background-color 0.15s ease-in-out;
@@ -205,14 +205,14 @@
 }
 
 .calculator__submit-button > img {
-  height: 24px;
+  height: 1.5rem;
   width: auto;
-  margin-right: 12px;
+  margin-right: 0.75rem;
 }
 
 @media (min-width: 1050px) {
   .calculator {
-    padding: 37px 39px 40px 39px;
+    padding: 2.3125rem 2.4375rem 2.5rem 2.4375rem;
   }
 
   .calculator__header {
@@ -220,12 +220,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
   }
 
   .calculator__input-field {
     grid-template-columns: 1fr 1fr;
-    column-gap: 22px;
+    column-gap: 1.375rem;
   }
 
   .calculator__input-field > div:first-of-type {
@@ -233,6 +233,6 @@
   }
 
   .calculator__submit-button {
-    margin-top: 39px;
+    margin-top: 2.4375rem;
   }
 }

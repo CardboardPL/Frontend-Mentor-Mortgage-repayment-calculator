@@ -1,11 +1,11 @@
 .results {
   color: var(--slate-300);
   background-color: var(--slate-900);
-  padding: 31.625px 28px;
+  padding: 1.9765625rem 1.75rem;
 }
 
 .results.results--complete {
-  padding: 29px 24px 32px 24px;
+  padding: 1.8125rem 1.5rem 2rem 1.5rem;
 }
 
 .results--empty {
@@ -13,27 +13,27 @@
 }
 
 .results__header {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: var(--font-weight-bold);
   color: var(--white);
-  margin-bottom: 14px;
+  margin-bottom: 0.875rem;
 }
 
 .results--complete > .results__header {
-  margin-bottom: 13px;
+  margin-bottom: 0.8125rem;
 }
 
 .results__illustration-empty {
-  width: 192.25px;
-  margin-bottom: 7px;
+  width: 12.015625rem;
+  margin-bottom: 0.4375rem;
 }
 
 .results__values {
   background-color: hsl(202, 56%, 12%);
-  margin-top: 24px;
-  border-top: 4px solid var(--lime);
-  border-radius: 8px;
-  padding: 20px 16px 21px 16px;
+  margin-top: 1.5rem;
+  border-top: 0.25rem solid var(--lime);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1rem 1.3125rem 1rem;
 }
 
 .results__values > span {
@@ -42,22 +42,22 @@
 
 .results__values hr {
   background-color: var(--slate-700);
-  height: 1px;
+  height: 0.0625rem;
   width: 100%;
   border: none;
-  margin: 12px 0 16px 0;
+  margin: 0.75rem 0 1rem 0;
 }
 
 .result__monthly-payment {
-  font-size: 40px;
+  font-size: 2.5rem;
   color: var(--lime);
-  margin-top: 2px;
+  margin-top: 0.125rem;
 }
 
 .result__total-payment {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--white);
-  margin-top: 5px;
+  margin-top: 0.3125rem;
 }
 
 .result__monthly-payment,
@@ -67,7 +67,7 @@
 
 @media (min-width: 1050px) {
   .results {
-    border-bottom-left-radius: 84px;
+    border-bottom-left-radius: 5.25rem;
   }
 
   .results--empty {
@@ -78,20 +78,20 @@
   }
 
   .results.results--complete {
-    padding: 37px 40px 32px 40px;
+    padding: 2.3125rem 2.5rem 2rem 2.5rem;
   }
 
   .results__values {
-    padding: 28px 32px 29px 32px;
-    margin-top: 40px;
+    padding: 1.75rem 2rem 1.8125rem 2rem;
+    margin-top: 2.5rem;
   }
 
   .results__values hr {
-    margin: 25px 0 32px 0;
+    margin: 1.5625rem 0 2rem 0;
   }
 
   .result__monthly-payment {
-    font-size: 56px;
-    margin-top: 1px;
+    font-size: 3.5rem;
+    margin-top: 0.0625rem;
   }
 }
