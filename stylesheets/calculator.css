@@ -233,6 +233,7 @@
   }
 
   .calculator__submit-button {
+    width: 19.625rem;
     margin-top: 2.4375rem;
   }
 }
