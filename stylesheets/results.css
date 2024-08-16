@@ -16,16 +16,12 @@
   font-size: 1.5rem;
   font-weight: var(--font-weight-bold);
   color: var(--white);
-  margin-bottom: 0.875rem;
-}
-
-.results--complete > .results__header {
   margin-bottom: 0.8125rem;
 }
 
 .results__illustration-empty {
   width: 12.015625rem;
-  margin-bottom: 0.4375rem;
+  margin-bottom: 0.5rem;
 }
 
 .results__values {
@@ -79,6 +75,14 @@
 
   .results.results--complete {
     padding: 2.3125rem 2.5rem 2rem 2.5rem;
+  }
+
+  .results__illustration-empty {
+    margin-bottom: 0.8125rem;
+  }
+
+  .results:not(.results--complete) .results__header {
+    margin-bottom: 0.875rem;
   }
 
   .results__values {

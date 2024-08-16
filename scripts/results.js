@@ -6,7 +6,13 @@ function generateResultHTML(results) {
 
   if (!monthlyMortgagePayment || !totalMortgagePayment) {
     console.error('Invalid object was passed to the function');
-    return;
+    return `
+      <h2 class="results__header">An error has occured</h2>
+
+      <p class="results__message">
+        An error has occured. Please try again or reload the page.
+      </p>
+    `;
   }
 
   return `
