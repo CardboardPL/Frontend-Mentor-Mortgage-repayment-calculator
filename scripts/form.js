@@ -45,7 +45,7 @@ function formatNum(numStr) {
 }
 
 function formattedInputValuesToNum(...inputValues) {
-  return inputValues.map(val => Number(val.replace(/[^0-9\.]/g, '')));
+  return inputValues.map(val => Number(val.replace(/[\,]/g, '')));
 }
 
 function validateForm(formElement) {
@@ -90,7 +90,7 @@ function validateForm(formElement) {
 }
 
 export function validateNumberField(inputVal, inputValidationAttributes) {
-  inputVal = Number(inputVal.replace(/[^0-9\.]/g, ''));
+  inputVal = Number(inputVal.replace(/[\,]/g, ''));
   const validationAttributes = inputValidationAttributes;
   const { min, max } = validationAttributes;
 
@@ -99,13 +99,13 @@ export function validateNumberField(inputVal, inputValidationAttributes) {
 
   if (isNaN(inputVal)) {
     isValid = false;
-    inputMessage = 'Number must be a valid number';
+    inputMessage = 'Input must be a valid number';
   } else if (min && inputVal < min) {
     isValid = false;
-    inputMessage = `Number must be greater than or equal to ${formatNum(min.toString())}`;
+    inputMessage = `Input must be greater than or equal to ${formatNum(min.toString())}`;
   } else if (max && inputVal > max) {
     isValid = false;
-    inputMessage = `Number must be less than or equal to ${formatNum(max.toString())}`;
+    inputMessage = `Input must be less than or equal to ${formatNum(max.toString())}`;
   }
 
   return {status: isValid, message: inputMessage};
@@ -118,7 +118,11 @@ function showErrorMessage(errorMessageElem, message) {
 
 function handleValidationError(inputElem, errorMessageElem, message) {
   showErrorMessage(errorMessageElem, message);
-  inputElem.closest('.js-input-wrapper').classList.add('calculator__input-wrapper--error');
+
+  const inputWrapper = inputElem.closest('.js-input-wrapper');
+  if (inputWrapper) {
+    inputWrapper.classList.add('calculator__input-wrapper--error');
+  }
 }
 
 function clearErrorMessages(formElement) {
